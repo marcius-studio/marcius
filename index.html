@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcius.com</title>
-    <meta name="description" content="Parent company of the Marcius ecosystem: Marcius.com, Marcius Capital, Marcius Fund, Polygonum Online.">
+    <meta name="description"
+        content="Parent company of the Marcius ecosystem: Marcius.com, Marcius Capital, Marcius Fund, Marcius Studio, Polygonum Online.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -341,12 +342,6 @@
             }
         }
 
-        .movement {
-            /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
-            position: relative;
-            animation: movement 8s step-end infinite;
-        }
-
         @keyframes movement {
             0% {
                 top: 0px;
@@ -413,68 +408,42 @@
             }
         }
 
-        .font {
-            animation: font 7s step-end infinite;
-        }
-
-        @keyframes font {
-            0% {
-                font-weight: 100;
-                color: #e0287d;
-                filter: blur(3px);
-            }
-
-            20% {
-                font-weight: 500;
-                color: #fff;
-                filter: blur(0);
-            }
-
-            50% {
-                font-weight: 300;
-                color: #1bc7fb;
-                filter: blur(2px);
-            }
-
-            60% {
-                font-weight: 700;
-                color: #fff;
-                filter: blur(0);
-            }
-
-            90% {
-                font-weight: 500;
-                color: #e0287d;
-                filter: blur(6px);
-            }
-        }
-
         .glitch span {
             animation: paths 5s step-end infinite;
         }
 
         .glitch::before {
+            content: '';
             animation: paths 5s step-end infinite, opacity 5s step-end infinite,
                 font 8s step-end infinite, movement 10s step-end infinite;
         }
 
         .glitch::after {
+            content: '';
             animation: paths 5s step-end infinite, opacity 5s step-end infinite,
                 font 7s step-end infinite, movement 8s step-end infinite;
-        }
-
-        .hero-container {
-            position: relative;
-            padding: 200px 0;
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <h1 class="glitch" data-text="近設計">
-        <span>Marcius.com</span>
+    <h1 class="glitch ">
+        <span id="m">Marcius.com</span>
+        <span id="s" style="display: none;">不久</span>
     </h1>
 </body>
+
+<script>
+    window.addEventListener('load', (event) => {
+        let bol = true
+        const m = document.getElementById('m')
+        const s = document.getElementById('s')
+
+        setInterval(() => {
+            m.style.display = m.style.display == 'block' ? 'none' : 'block'
+            s.style.display = m.style.display == 'block' ? 'none' : 'block'
+        }, 1000 * 3)
+    })
+</script>
 
 </html>
