@@ -41,9 +41,17 @@
             filter: drop-shadow(0 1px 3px);
         }
 
+        h1 span:last-child {
+            font-size: 7.5vw !important;
+        }
+
         @media only screen and (max-width: 600px) {
             h1 {
                 font-size: 10vw !important;
+            }
+
+            h1 span:last-child {
+                font-size: 20vw !important;
             }
         }
 
@@ -439,7 +447,7 @@
         const s = document.getElementById('s')
 
         setInterval(() => {
-            m.style.display = m.style.display == 'block' ? 'none' : 'block'
+            m.style.display = (m.style.display == 'block' || !m.style.display) ? 'none' : 'block'
             s.style.display = m.style.display == 'block' ? 'none' : 'block'
         }, 1000 * 3)
     })
